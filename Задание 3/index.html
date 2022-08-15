@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h2>Выберите тему:</h2>
+    <select class="select">
+        <option selected value="1">Белый</option>
+        <option value="2">Розовый</option>
+        <option value="3">Синий</option>
+    </select>
+
+      <script>
+        let body = document.querySelector('body');
+        let select = document.querySelector('.select');
+        function color(){
+            let index = select.selectedIndex;
+            console.log(index);
+            if(index === 0){
+                body.classList.remove('pink');
+                body.classList.remove('blue');
+                body.classList.add('white');
+            } else if(index === 1){
+                body.classList.remove('white');
+                body.classList.remove('blue');
+                body.classList.add('pink');
+            }else if(index === 2){
+                body.classList.remove('pink');
+                body.classList.remove('white');
+                body.classList.add('blue');
+            }
+        };
+        select.addEventListener('change', color);
+      </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+        <input class="name" type="text" name="name" placeholder="Введите имя"><br><br>
+        <input class="secondName" type="text" name="secondName" placeholder="Введите фамилию"><br><br>
+        <input class="email" type="email" name="email" placeholder="Введите Email"><br><br>
+        <input class="password" type="password" name="password" placeholder="Пароль"><br><br>
+        <input class="passwordRepeat" type="password" name="passwordRepeat" placeholder="Повторите пароль"><br><br>
+        <button class="button" onclick="checkName()">Отправить</button>
+
+    <script>
+        function checkName() {
+            let name1 = document.querySelector('.name').value;
+            console.log(name1);
+            if(name1==''){
+                alert('Первое поле не заполнено!');
+            };
+        }
+        function checkSecName() {
+            let secondName = document.querySelector('.secondName').value;
+            if(secondName===''){
+                alert('Второе поле не заполнено!');
+            }
+        }
+        function checkEmail() {
+            let email = document.querySelector('.email').value;
+            if(email==''){
+                alert('Третье поле не заполнено или заполнено некорретно!');
+            }
+        }
+        function checkPassword() {
+            let pass = document.querySelector('.password').value;
+            if(pass=='' || pass.length <= 8){
+                alert('Четвертое поле не заполнено или заполнено некорректно. Пароль должен быть больше 8 букв!');
+            }
+        }
+        function checkSecPassword() {
+            let secPas = document.querySelector('.passwordRepeat').value;
+            let pass = document.querySelector('.password').value;
+            if(secPas==''){
+                alert('Подтвердите пароль');
+            } else if(secPas!==pass){
+                alert('Пароли не совпадают')
+            }
+        }
+        let send = document.querySelector('.button');
+        send.addEventListener("click", checkSecName);
+        send.addEventListener("click", checkEmail);
+        send.addEventListener("click", checkPassword);
+        send.addEventListener("click", checkSecPassword);
+        
+    </script>
+</body>
+
+</html>
